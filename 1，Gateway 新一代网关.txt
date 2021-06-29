@@ -1,1 +1,41 @@
 1，概述简介
+Gateway 是在Spring 生态系统之上构建的API网关服务，基于 Spring5，SpringBoot2 和 Project Reactor 等技术。
+Gateway 旨在提供一种简单而有效的方式来对API 进行路由，以及提供一些强大的过滤功能。例如：熔断，限流，重试等。
+
+SpringCloud Gateway 是 Spring Cloud 的一个全新项目，基于 Spring5，SpringBoot2 和 Project Reactor 等技术开发的
+网关，旨在为微服务架构提供一种简单而有效的统一的API 路由管理方式。
+
+SpringCloud Gateway 作为 SpringCloud 生态系统中的网关，目标是替代 Zuul ，在Spring Cloud 2.0 以上版本中，没有对新版本
+的Zuul 2.0 以上最新高性能版本进行集成，任然还是使用的Zuul1.x 非 Reactor 模式的老版本。而为了提升网关的性能，SpringCloud Gateway
+是基于 WebFlux 框架实现的，而WebFlux 框架底层则使用了高性能的Reactor 模式通信框架 Netty。
+
+Spring Cloud Gateway 的目标提供统一的路由方式且基于Filter 链的方式提供了网关基本的功能，列入：安全，监控/指标，和限流。
+
+
+-- 基于WebFlux 框架
+-- 基于Filter 链的方式提供网关基本功能。
+
+2，能做什么？
+    - 反向代理
+    - 鉴权
+    - 流量控制
+    - 熔断
+    - 日志监控
+
+
+3，一般系统架构模型
+    客户端（浏览器、手机等）
+           |
+      Nginx 负载均衡
+           |
+    网关1, 网关2 ....
+           |
+    微服务A、微服务B、微服务C
+
+
+4，Gateway 非阻塞异步模型
+    Gateway 是基于异步非阻塞模型上进行开发的，性能方面不需要担心。
+
+
+
+
