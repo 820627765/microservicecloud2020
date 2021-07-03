@@ -1,0 +1,7 @@
+1,新建模块
+2，加入依赖
+3，编写主启动类
+4，配置配置文件 application.yml
+5，编写义务逻辑，使用 RestTemplate 通过 http://ip:port/资源地址 的方式访问微服务
+
+
