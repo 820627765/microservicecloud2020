@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5167e807-7ca6-496b-93bf-1033d465af89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/1，springCloud 组件现状及替代方案说明.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2，springcloud 中文官网.txt" afterDir="false" />
-    </list>
+    <list default="true" id="5167e807-7ca6-496b-93bf-1033d465af89" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +123,8 @@
       <workItem from="1622590011393" duration="136000" />
       <workItem from="1622734161423" duration="291000" />
       <workItem from="1625010500631" duration="370000" />
-      <workItem from="1625066005270" duration="3702000" />
+      <workItem from="1625066005270" duration="4239000" />
+      <workItem from="1625302456011" duration="871000" />
     </task>
     <servers />
   </component>
