@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5167e807-7ca6-496b-93bf-1033d465af89" name="Default Changelist" comment="" />
+    <list default="true" id="5167e807-7ca6-496b-93bf-1033d465af89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/doc/1，微服务架构理论及各大厂微服务架构.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img/al-wfw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img/jd-wfw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img/jdwl-wfw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img/wfw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img/wfwjg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/img/wfwjg1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1，Gateway 新一代网关.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1，springCloud 组件现状及替代方案说明.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doc/2，springCloud 微服务组件现状及替代方案说明.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2，springcloud 中文官网.txt" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud 中文官网.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +66,9 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\microservicecloud2020\doc" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\microservicecloud2020" />
     </key>
@@ -125,6 +139,7 @@
       <workItem from="1625010500631" duration="370000" />
       <workItem from="1625066005270" duration="4239000" />
       <workItem from="1625302456011" duration="871000" />
+      <workItem from="1625308651037" duration="1822000" />
     </task>
     <servers />
   </component>
@@ -188,10 +203,10 @@
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1621550507210" />
     <state x="2133" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1621444402503" />
-    <state x="56" y="2" key="new project wizard" timestamp="1622590142528">
+    <state x="56" y="2" key="new project wizard" timestamp="1625309800046">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="56" y="2" key="new project wizard/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1622590142528" />
+    <state x="56" y="2" key="new project wizard/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1625309800046" />
     <state x="1962" y="2" key="new project wizard/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1621552504015" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1625068332991">
       <screen x="0" y="0" width="1280" height="680" />
