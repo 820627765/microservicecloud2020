@@ -1,0 +1,30 @@
+1，服务发现解释
+   去发现eureka 上注册的服务信息。
+
+2，如何开发？
+   第一步：在微服务的主启动类上加上 @EnableDiscoveryClient 注解
+
+   第二步：编写代码
+   在需要服务发现能力的微服务项目增加一个访问入口（如控制器），并注入 DiscoveryClient 实例
+   @Resource
+   private DiscoveryClient discoveryClient;
+
+   @GetMapping(value="/payment/discovery")
+   public Object discovery(){
+       //根据微服务名称获取 注册到eureka上的这个服务名对应的所有实例信息
+       List<InstanceInfo> instances = discoveryClient.getInstancesById("CLOUD-PAYMENT-SERVICE");
+       for(InstanceInfo info : instances){
+           //获取实例对应的ip 和 端口号
+           System.out.println(info.getIPAddr() + ":" + info.getPort());
+           //返回如 http://localhost:8001
+           System.out.println(info.getHomePageUrl());
+       }
+
+       return discoveryClient;
+   }
+
+   如此：一旦访问该接口，就能发现 eureka 上的服务信息了。并且返回的 discoveryClient 对象包含了eureka上注册的所有
+        服务信息。
+
+
+   这就是服务发现能力。

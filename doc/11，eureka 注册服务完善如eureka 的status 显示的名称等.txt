@@ -1,0 +1,10 @@
+1，配置eureka server 网页上 status 显示的名称就是 instance-id 指定的名称
+instance:
+    instance-id: payment8001
+
+如果不配置，默认 status 是展示 : 计算机名称:微服务名:端口
+
+2，配置鼠标移动到 status 上具体某个服务时，左下角展示对应的 ip 和 端口
+instance:
+    prefer-ip-address: true
+

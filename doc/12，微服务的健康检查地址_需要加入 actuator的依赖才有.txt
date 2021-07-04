@@ -1,0 +1,8 @@
+1，在微服务项目中加入actuator依赖后，会默认提供一个服务健康检查地址 http://ip:port/actuator/health
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+2，访问该健康检查地址，返回如下内容表示服务是健康的
+{"status":"UP"}

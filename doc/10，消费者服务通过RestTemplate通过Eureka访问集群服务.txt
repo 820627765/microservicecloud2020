@@ -1,0 +1,26 @@
+使用eureka前微服务调用是这样的
+    // 直接使用 http://ip:port 的形式访问的
+    public static final String PAYMENT_URL = "http://localhost:8001";
+    @GetMapping("/consumer/payment/get/{id}")
+    public CommonResult<Payment> getPayment(@PathVariable("id")Long id){
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
+    }
+
+使用eureka后微服务调用是这样的
+    // 直接使用 http://微服务名 的形式访问的。如此我们就不用关系微服务的 IP 和 端口了
+    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+    @GetMapping("/consumer/payment/get/{id}")
+    public CommonResult<Payment> getPayment(@PathVariable("id")Long id){
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
+    }
+
+    但是，此时还需在RestTemplate注册时配置一个 @LoadBalanced 注解，表示赋予RestTemplate 使用 Eureka 上注册
+    的服务实现负载均衡的能力。其原理是使用 Ribbon 的负载均衡能力。
+    @Bean
+    @LoadBalanced
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
+
+    这样就能使用RestTemplate 访问eureka 上的服务并具备负载均衡的能力了。
+

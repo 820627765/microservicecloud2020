@@ -1,0 +1,37 @@
+eureka 集群搭建步骤
+1,新建cloud-eureka-server7002 和 cloud-eureka-server7003 模块
+2,分别配置pom.xml,加入eureka server 得依赖
+3，分别修改yml文件：每台eureka 服务端的service-url 需要配置其他所有eureka服务端的地址
+   cloud-eureka-server7001 得yml文件修改为：
+        hostname: eureka7001.com # eureka服务端实例名称
+        service-url:
+            # 设置与 eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+            # defaultZone:  http://eureka7001.com:7001/eureka/  #单机版
+            # 集群版本，用逗号分割
+            defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+   cloud-eureka-server7002 得yml文件修改为：
+       hostname: eureka7002.com # eureka服务端实例名称
+       service-url:
+           # 设置与 eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+           # defaultZone:  http://eureka7002.com:7002/eureka/  #单机版
+           defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/
+
+   cloud-eureka-server7003 得yml文件修改为：
+       hostname: eureka7003.com # eureka服务端实例名称
+       service-url:
+           # 设置与 eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+           # defaultZone:  http://eureka7001.com:7003/eureka/  #单机版
+           defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+4，修改hosts文件
+    127.0.0.1 eureka7001.com
+    127.0.0.1 eureka7002.com
+    127.0.0.1 eureka7003.com
+
+5，启动三台eureka，并查看 http://eureka7001.com:7001 查看 DS Replicas 是否有另外两台Eureka Server 的 hostName
+
+6，配置eureka 客户端的yml，将注册中心的地址配置为 以上3台eureka 服务的地址，用逗号分割
+service-url:
+  defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka,http://localhost:7003/eureka
+
+7，启动eureka 客户端

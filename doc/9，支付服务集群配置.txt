@@ -1,0 +1,10 @@
+1,新建模块 cloud-provider-payment-8002 和 cloud-provider-payment-8003
+  配置信息参考 cloud-provider-payment-8001 ，一些不同的配置修改下即可。
+
+2，注意 8001 , 8002 , 8003 的应用名不要修改，因为集群后面是根据服务名字去获取的
+spring:
+  application:
+    name: cloud-payment-service
+
+3，启动3台微服务即可
+
