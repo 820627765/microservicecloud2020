@@ -1,0 +1,44 @@
+概述
+保护模式主要用于一组客户端 和 Eureka server 之间存在网络分区常见下的保护。一旦进入保护模式
+Eureka Server 将会尝试保护其服务注册表中的信息，不再删除服务注册表中的数据，也就是不会注销任何微服务。
+
+如果在Eureka Server 的首页看到如下这段提示，则表示Eureka 进入了保护模式
+   EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT.
+   RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.
+
+
+一句话解释：某时刻某一个微服务不可用了，Eureka 不会立刻清理，依旧会对该微服务的信息进行保存。这是属于 CAP 理论的 AP原则
+
+
+1，为什么会有Eureka自我保护机制？
+为了防止EurekaClient 是正常运行的，但是由于与Eureka Server 的网络不通情况下，Eureka Server 不会立刻将
+该EurekaClient 剔除。
+
+2，什么是自我保护模式？
+默认情况下，如果EurekaServer在一定时间内没有接收到某个微服务实例的心跳，Eureka Server将会注销该实例（默认是90秒）
+但是当网络分区故障发生时（延时、卡顿、拥挤等），微服务与EurekaServer之间无法正常通信，以上行为可能变得非常危险--因为
+服务本身其实时健康的，此时本不应该注销这个服务。所以Eureka通过”自我保护模式“来解决这个问题，即当EurekaServer节点在
+短时间内丢失过多客户端时，那么这个节点就会进入自我保护模式。
+
+3，如何禁用erueka的自我保护模式?
+- 先配置Eureka 客户端，注意这个配置是在 eureka 客户端模块的配置文件上配置。
+  eureka:
+    instance:
+        # Eureka 客户端向服务端发送心跳的时间间隔，默认是 30秒
+        lease-renewal-interval-in-seconds: 30
+        # Eureka 服务端在收到最后一次心跳后等待的时间上限，默认是 90秒，超时将剔除服务
+        lease-expiration-duration-in-seconds: 90
+
+- 如何关闭eureka 的自我保护模式，注意这个配置是在 eureka 服务端模块上配置。
+eureka:
+    server:
+        # 表示关闭自我保护模式，默认是 true
+        enable-self-preservation: false
+        # 表示eureka服务端在收到客户端最后一次心跳时间为止等待下一次心跳上限时间，默认90s，改为2000ms，即2s
+        eviction-interval-timer-in-ms: 2000
+
+- 如果自我保护机制被关闭后，会有如下现象：
+  1） 会在eureka 网页上显示 THE SELF PRESERVATION MODE IS TURNED OFF .. 表示提示用户自我保护模式已经关闭了。
+  2） 一旦eureka 客户端挂机后，在2秒内eureka服务端没有收到心跳则会直接将服务剔除掉。
+
+

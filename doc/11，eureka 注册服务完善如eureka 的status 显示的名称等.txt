@@ -5,6 +5,7 @@ instance:
 如果不配置，默认 status 是展示 : 计算机名称:微服务名:端口
 
 2，配置鼠标移动到 status 上具体某个服务时，左下角展示对应的 ip 和 端口
+注意这个配置是在 eureka服务模块上配置。
 instance:
     prefer-ip-address: true
 
