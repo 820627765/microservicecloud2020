@@ -1,0 +1,36 @@
+注意：若请求没有匹配上路由，则会返回404
+
+官方自带的Predicate有11种多？如下
+1，Path 断言，用来匹配路径的断言
+   - Path=/getUser   匹配/getUser请求
+2，After 断言，用来匹配在指定时间之后才生效的路由
+   - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+   注意：这个值得时间格式可以通过如下代码得到
+   ZonedDateTime z = new ZonedDateTime.now();//默认时区
+   System.out.println(z); //会打印出当前时区所在得如上案例的那种时间格式，然后需改对应的时间点即可。
+
+3，Before 断言，用来匹配指定时间之前才生效的路由
+   - Before=2017-01-20T17:42:47.789-07:00[America/Denver]
+
+4，Between 断言，用来匹配在两个时间之间才生效的路由，两个时间用逗号隔开
+   - Between=2017-01-20T17:42:47.789-07:00[America/Denver],2017-01-20T17:42:47.789-07:00[America/Denver]
+
+5，Cookie 断言，对应有指定的cookie，且满足指定的正则表达式则生效，第一个参数为cookieName，第二个参数是值得正则表达式
+    - Cookie=chocloate,ch.p  # 表示cookie种有chocloate，且值满足 ch.p 的正则表达式
+    测试请求带cookie的命令：curl http://localhost:9527/payment --cookie "cookieName=cookieValue"
+
+6，Header 断言，对应有指定的请求头，且请求头的值满足指定的正则表达式,第一个参数为headerName，第二个参数是值得正则表达式
+    - Header=X-Request-Id,\d+   #表示有请求头 X-Request-Id，且值是一个整数
+    测试请求带请求头的命令：curl http://localhost:9527/payment -H "X-Request-Id:123"
+
+7，Method 断言，对应是指定的请求方法
+    - Method=GET  # 表示是get请求才匹配
+
+8，Host 断言
+    - Host=**.somehost.org,**.anotherhost.org
+
+8，Query 断言，判断是否包含某个参数，且参数值满足指定的正则表达似乎
+    - Query=username,\d+   #有参数username，且只为整数才有效
+
+
+所以，predicate 是用来做匹配路由的条件的。

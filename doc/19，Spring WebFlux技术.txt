@@ -1,0 +1,5 @@
+1，在Servlet3.1之后有了”异步非阻塞“的支持。而WebFlux时一个典型非阻塞异步的框架，它的核心时基于Reactor的相关Api实现的
+   相对于传统的web框架来说，它可以运行在诸如Netty、Undertow以及支持Servlet3.1的容器上。
+
+2，Spring WebFlux时Spring5.0引入的新的响应式框架。区别于SpringMVC，它不需要依赖Servlet API，它是完全异步非阻塞的
+  并且基于Reactor来是心啊响应式流规范。

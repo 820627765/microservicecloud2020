@@ -1,0 +1,21 @@
+1，Spring Cloud Gateway 是spring官方推出的。
+  Spring Cloud Gateway 构建于 Spring Boot2.0 以上，并且是Spring WebFlux 和 Project Reactor的。
+
+  Spring Cloud Gateway 是 zuul1.x版的替代。
+  Spring Cloud Gateway 是基于WebFlux框架实现的，而WebFlux框架底层则使用了高性能的Reactor模式通信框架Netty。
+  Spring Cloud Gateway 的目标是提供统一的路由方式且基于Fiter链的方式提供了网关基本的功能，如安全，监控，限流。
+
+2，Spring cloud gateway 能干什么？
+   -- 反向代理
+   -- 鉴权
+   -- 流量控制
+   -- 熔断
+   -- 日志监控
+   等
+
+3，服务网关在系统架构中存在什么位置？
+  外部请求： 手持终端   HTML5    Open接口
+  负载均衡： Nginx
+  服务网关： 网关1   网关2     网关3
+  微服务：  微服务A 微服务B  微服务C  微服务D ..
+
